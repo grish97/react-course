@@ -10,10 +10,10 @@ export const MainLayout = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li>
-                        <Link to='/shorts'>Shorts</Link>
+                        <Link to='/images'>Shorts</Link>
                     </li>
                     <li>
-                        <Link to='/subscribtions'>Subscribtions</Link>
+                        <Link to='/subscriptions'>Subscribtions</Link>
                     </li>
                 </ul>
             </nav>

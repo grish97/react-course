@@ -1,5 +1,5 @@
 
-const subscription = [
+const subscriptions = [
     {
         id: '1',
         name: 'Premium Streaming Plan',
@@ -16,3 +16,11 @@ const subscription = [
         price: '$49.99',
     }
 ];
+
+export const getSubscriptions = () => {
+    return subscriptions;
+}
+
+export const getSubscriptionById = (subscriptionId) => {
+    // ...
+};

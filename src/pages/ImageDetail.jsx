@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { getImageDetail } from "../data/images";
 
-export const ShortDetail = () => {
+export const ImageDetail = () => {
     const { imageId } = useParams();
     const image = getImageDetail(imageId);
     
     return (
         <div>
-            <h3>Short Detail</h3>
+            <h3>Image Detail</h3>
 
             <p>{image.name}</p>
 

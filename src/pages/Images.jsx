@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getImages } from '../data/images';
 
 
-export const Shorts = () => {
+export const Images = () => {
     const navigate = useNavigate();
 
     const images = getImages();
@@ -13,7 +13,7 @@ export const Shorts = () => {
 
     return (
         <section>
-            <h1>This is Shorts Page</h1>
+            <h1>This is Images Page</h1>
 
             <div className="images">
                 {images.map((image, index) => (
