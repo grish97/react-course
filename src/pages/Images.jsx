@@ -16,7 +16,7 @@ export const Images = () => {
             <h1>This is Images Page</h1>
 
             <div className="images">
-                {images.map((image, index) => (
+                {images.map((image) => (
                     <img
                     onClick={
                         () => handleImageView(image)

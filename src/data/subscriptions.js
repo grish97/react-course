@@ -22,5 +22,7 @@ export const getSubscriptions = () => {
 }
 
 export const getSubscriptionById = (subscriptionId) => {
-    // ...
+    return subscriptions.find(
+        (subscription) => subscription.id === subscriptionId
+    )
 };
