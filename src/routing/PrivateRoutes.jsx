@@ -3,9 +3,9 @@ import { useAuth } from '../hooks/useAuth';
 
 
 export const PrivateRoutes = () => {
-    const { isLoggedIn } = useAuth();
+    const { auth } = useAuth();
 
-    return isLoggedIn 
+    return auth.isLoggedIn 
         ? <Outlet />
         : <Navigate to='/signin' />;
 };
