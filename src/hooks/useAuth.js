@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { findUser } from '../data/users';
 
 export const useAuth = () => {
-    const [userData, setUserData] = useState({ isLoggedIn: false, user: null  });
+    const [auth, setAuth] = useState({ isLoggedIn: false, user: null  });
+
+    // useEffect(() => {
+    //     const loggedUser = localStorage.getItem('auth');
+
+    //     if (loggedUser) {
+    //         setUserData(JSON.parse(loggedUser));
+    //     }
+    // }, []);
 
     const signIn = (username, password) => {
         const user = findUser(username);
@@ -12,7 +20,7 @@ export const useAuth = () => {
 
             localStorage.setItem('auth', JSON.stringify(storeUser));
 
-            setUserData(storeUser);
+            setAuth(storeUser);
 
             return user;
         }
@@ -22,12 +30,12 @@ export const useAuth = () => {
 
     const signOut = () => {
         localStorage.clear();
-        setUserData({ isLoggedIn: false, user: null });
+        setAuth({ isLoggedIn: false, user: null });
     };
 
 
     return {
-        auth: userData,
+        auth,
         signIn,
         signOut,
     };

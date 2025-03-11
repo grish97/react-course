@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
-    const [username, setUserName] = useState('');
+    const navigate = useNavigate();
+
+    const { signIn } = useAuth();
+
+    const [username, setUserName] = useState('john_doe91');
     const [password, setPassword] = useState('');
 
     const onChangeUsername = (event) => {
@@ -13,11 +19,15 @@ export const SignIn = () => {
     };
 
     const handleSignIn = () => {
-       // find user by username
+        const auth = signIn(username, password);
 
-       // save found user data into local storage
+        if (auth) {
+            navigate('/');
 
-       // naviagte home page
+            return;
+        }
+
+        alert('User with credentials does not exist');
     };
 
     return (
