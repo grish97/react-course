@@ -6,10 +6,8 @@ export const PublicRoutes = () => {
     const { auth } = useAuth();
 
     console.log({
-        public: auth.isLoggedIn
+        public: auth.isLoggedIn,
     });
 
-    return auth.isLoggedIn
-        ? <Navigate to='/' />
-        : <Outlet />;
+    return !auth.isLoggedIn && <Outlet />;
 };

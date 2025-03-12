@@ -23,7 +23,7 @@ export const Routing = () => {
 
                 <Route element={<PrivateRoutes />}>
                     <Route element={<MainLayout />}>
-                        <Route path='/' element={<Home />} />
+                        <Route index element={<Home />} />
                         <Route path='/images' element={<Images />} />
                         <Route path='/images/:imageId' element={<ImageDetail />} />
                         <Route path='/subscriptions' element={<Subscriptions />} />

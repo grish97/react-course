@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { findUser } from '../data/users';
 
 export const useAuth = () => {
+    const navigate = useNavigate();
     const [auth, setAuth] = useState({ isLoggedIn: false, user: null  });
 
-    // useEffect(() => {
-    //     const loggedUser = localStorage.getItem('auth');
+    useEffect(() => {
+        const loggedUser = localStorage.getItem('auth');
 
-    //     if (loggedUser) {
-    //         setUserData(JSON.parse(loggedUser));
-    //     }
-    // }, []);
+        if (loggedUser) {
+            setAuth(JSON.parse(loggedUser));
+            navigate('/');
+        } else {
+            navigate('/signin');
+        }
+    }, []);
 
     const signIn = (username, password) => {
         const user = findUser(username);
