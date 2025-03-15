@@ -9,8 +9,6 @@ export const SignIn = () => {
 
     const navigate = useNavigate();
 
-    const { signIn } = useAuth();
-
     const [username, setUserName] = useState('john_doe91');
     const [password, setPassword] = useState('');
 
@@ -23,15 +21,11 @@ export const SignIn = () => {
     };
 
     const handleSignIn = () => {
-        const auth = signIn(username, password);
+        const auth = authContext.signIn(username, password);
 
-        if (auth) {
-            navigate('/');
-
-            return;
+        if (!auth) {
+            alert('User with credentials does not exist');
         }
-
-        alert('User with credentials does not exist');
     };
 
     return (
@@ -48,10 +42,10 @@ export const SignIn = () => {
             </div>
 
             <div>
-                <input 
-                    value={password} 
-                    onChange={onChangePassword} 
-                    type="password" 
+                <input
+                    value={password}
+                    onChange={onChangePassword}
+                    type="password"
                     placeholder="Password"
                 />
             </div>

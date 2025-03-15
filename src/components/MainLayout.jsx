@@ -1,7 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
+import LogoutIcon from '../assets/logout.svg';
 import './MainLayout.css';
+import { useContext } from "react";
+import { AuthContext } from "../context/auth/AuthContext";
 
 export const MainLayout = () => {
+    const { signOut } = useContext(AuthContext);
+
     return (
         <section id="main-layout">
             <nav>
@@ -14,6 +19,10 @@ export const MainLayout = () => {
                     </li>
                     <li>
                         <Link to='/subscriptions'>Subscribtions</Link>
+                    </li>
+
+                    <li>
+                      <img className='logout' src={LogoutIcon} alt="Logout icon" onClick={signOut}/>
                     </li>
                 </ul>
             </nav>
