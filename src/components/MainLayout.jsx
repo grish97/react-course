@@ -1,35 +1,16 @@
-import { Outlet, Link } from "react-router-dom";
-import LogoutIcon from '../assets/logout.svg';
+import { Outlet } from "react-router-dom";
+import { Container, Box } from '@mui/material';
+import { Navbar } from './Navbar';
 import './MainLayout.css';
-import { useContext } from "react";
-import { AuthContext } from "../context/auth/AuthContext";
 
 export const MainLayout = () => {
-    const { signOut } = useContext(AuthContext);
-
     return (
-        <section id="main-layout">
-            <nav>
-                <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/images'>Shorts</Link>
-                    </li>
-                    <li>
-                        <Link to='/subscriptions'>Subscribtions</Link>
-                    </li>
+        <Container id="main-layout" disableGutters={true}>
+            <Navbar />
 
-                    <li>
-                      <img className='logout' src={LogoutIcon} alt="Logout icon" onClick={signOut}/>
-                    </li>
-                </ul>
-            </nav>
-
-            <div className="content">
+            <Box className="content" sx={{ marginTop: '30px' }}>
                 <Outlet />
-            </div>
-        </section>
+            </Box>
+        </Container>
     );
 };

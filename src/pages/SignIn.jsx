@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { Input, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from "../context/auth/AuthContext";
@@ -30,10 +30,10 @@ export const SignIn = () => {
 
     return (
         <div>
-            <h2>Sign In</h2>
+            <Typography variant='h3'>Sign In</Typography>
 
             <div>
-                <input
+                <Input
                     value={username}
                     onChange={onChangeUsername}
                     type="text"
@@ -42,7 +42,7 @@ export const SignIn = () => {
             </div>
 
             <div>
-                <input
+                <Input
                     value={password}
                     onChange={onChangePassword}
                     type="password"
@@ -50,7 +50,12 @@ export const SignIn = () => {
                 />
             </div>
 
-            <button onClick={handleSignIn}>Sign In</button>
+            <Button
+                variant="contained"
+                onClick={handleSignIn}
+            >
+                Sign In
+            </Button>
         </div>
     );
 };
