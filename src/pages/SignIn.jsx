@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { Input, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from "../context/auth/AuthContext";
@@ -8,8 +8,6 @@ export const SignIn = () => {
     const authContext = useContext(AuthContext);
 
     const navigate = useNavigate();
-
-    const { signIn } = useAuth();
 
     const [username, setUserName] = useState('john_doe91');
     const [password, setPassword] = useState('');
@@ -23,23 +21,19 @@ export const SignIn = () => {
     };
 
     const handleSignIn = () => {
-        const auth = signIn(username, password);
+        const auth = authContext.signIn(username, password);
 
-        if (auth) {
-            navigate('/');
-
-            return;
+        if (!auth) {
+            alert('User with credentials does not exist');
         }
-
-        alert('User with credentials does not exist');
     };
 
     return (
         <div>
-            <h2>Sign In</h2>
+            <Typography variant='h3'>Sign In</Typography>
 
             <div>
-                <input
+                <Input
                     value={username}
                     onChange={onChangeUsername}
                     type="text"
@@ -48,15 +42,20 @@ export const SignIn = () => {
             </div>
 
             <div>
-                <input 
-                    value={password} 
-                    onChange={onChangePassword} 
-                    type="password" 
+                <Input
+                    value={password}
+                    onChange={onChangePassword}
+                    type="password"
                     placeholder="Password"
                 />
             </div>
 
-            <button onClick={handleSignIn}>Sign In</button>
+            <Button
+                variant="contained"
+                onClick={handleSignIn}
+            >
+                Sign In
+            </Button>
         </div>
     );
 };
