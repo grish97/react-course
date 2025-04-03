@@ -49,9 +49,14 @@ export const ProductDetails = (props) => {
                                 <CircularProgress />
                             </Box>
                         )
-                        : (
+                        : product && (
                             <>
-                                <ProductBasicInfo />
+                                <ProductBasicInfo data={{
+                                    image: product.thumbnail,
+                                    title: product.title,
+                                    description: product.description,
+                                    rating: product.rating,
+                                }} />
                                 <ProductReviews />
                             </>
                         )
