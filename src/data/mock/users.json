@@ -5,6 +5,7 @@
       "email": "johndoe@example.com",
       "username": "john_doe91",
       "phone": "+1-555-123-4567",
+      "image": "https://dummyjson.com/icon/emilys/128",
       "address": {
         "street": "123 Main St",
         "city": "Springfield",
@@ -22,6 +23,7 @@
       "email": "janesmith@example.com",
       "username": "jane_smith22",
       "phone": "+44-7700-900123",
+      "image": "https://dummyjson.com/icon/emilys/128",
       "address": {
         "street": "456 Oak Ave",
         "city": "London",
@@ -39,6 +41,7 @@
       "email": "carlosg@example.com",
       "username": "carlos_g92",
       "phone": "+34-612-345-678",
+      "image": "https://dummyjson.com/icon/emilys/128",
       "address": {
         "street": "789 Calle Mayor",
         "city": "Madrid",
@@ -55,6 +58,7 @@
       "lastName": "Khan",
       "email": "aisha.k@example.com",
       "username": "aisha_khan89",
+      "image": "https://dummyjson.com/icon/emilys/128",
       "phone": "+92-312-3456789",
       "address": {
         "street": "321 Jasmine Road",
@@ -73,6 +77,7 @@
       "email": "liamo@example.com",
       "username": "liam_oconnor78",
       "phone": "+353-87-654-3210",
+      "image": "https://dummyjson.com/icon/emilys/128",
       "address": {
         "street": "567 Green St",
         "city": "Dublin",
