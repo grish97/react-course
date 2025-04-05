@@ -8,7 +8,7 @@ export const MainLayout = () => {
         <Container id="main-layout" disableGutters={true}>
             <Navbar />
 
-            <Box className="content" sx={{ marginTop: '30px' }}>
+            <Box className="content" sx={{ marginTop: '90px' }}>
                 <Outlet />
             </Box>
         </Container>

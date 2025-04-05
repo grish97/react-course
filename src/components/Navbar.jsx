@@ -1,35 +1,53 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth/AuthContext';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-import LogoutIcon from '../assets/logout.svg'
-import { AppBar } from '@mui/material';
+import { AppBar, Button, Box, Typography } from '@mui/material';
+
+const pages = [
+    { text: 'Home', link: '/' },
+    { text: 'Images', link: '/images' },
+    { text: 'Subscriptions', link: '/subscriptions' },
+    { text: 'Products', link: '/products' },
+    { text: 'Users', link: '/users' },
+];
 
 export const Navbar = () => {
-    const { signOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const { signOut, user } = useContext(AuthContext);
+
+    const handlePageChange = (link) => {
+        navigate(link);
+    };
 
     return (
-        <AppBar>
-                <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/images'>Shorts</Link>
-                    </li>
-                    <li>
-                        <Link to='/subscriptions'>Subscribtions</Link>
-                    </li>
+        <AppBar sx={{ px: '8px' }}>
+             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between' }}>
+                <Box sx={{ display: 'flex' }}>
+                    {pages.map((page) => (
+                        <Button
+                            key={page.text}
+                            onClick={() => handlePageChange(page.link)}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            {page.text}
+                        </Button>
+                    ))}
+                </Box>
 
-                    <li>
-                      <img
-                        className='logout'
-                        src={LogoutIcon}
-                        alt="Logout icon"
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography fontWeight='bold'>{user.firstName}</Typography>
+
+                    <Button
                         onClick={signOut}
-                       />
-                    </li>
-                </ul>
-            </AppBar>
+                        sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                        <LogoutIcon />
+                    </Button>
+                </Box>
+            </Box>
+        </AppBar>
     );
 };
