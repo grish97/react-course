@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Typography, Rating } from '@mui/material';
+import { ProductDetails } from "./ProductDetails";
 
 export const Products = () => {
+    const [isDetailsOpened, setIsDetailedOpened] = useState(false);
+
     const [products, setProducts] = useState([]);
+
+    const navigate = useNavigate();
+    const params = useParams();
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
@@ -12,7 +19,15 @@ export const Products = () => {
             });
     }, []);
 
-    console.log(products);
+    const handleDetailsOpen = (productId) => {
+        setIsDetailedOpened(true);
+        navigate(`/products/${productId}`);
+    };
+
+    const hadleDetailsClose = () => {
+        setIsDetailedOpened(false);
+        navigate('/products');
+    };
 
     return (
         <div>
@@ -34,6 +49,7 @@ export const Products = () => {
                     <TableBody>
                         {products.map((product) => (
                             <TableRow
+                                onClick={() => handleDetailsOpen(product.id)}
                                 key={product.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
@@ -53,6 +69,12 @@ export const Products = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <ProductDetails
+                productId={params.productId}
+                open={isDetailsOpened}
+                onClose={hadleDetailsClose}
+            />
         </div>
     );
 };

@@ -10,6 +10,7 @@ const pages = [
     { text: 'Images', link: '/images' },
     { text: 'Subscriptions', link: '/subscriptions' },
     { text: 'Products', link: '/products' },
+    { text: 'Users', link: '/users' },
 ];
 
 export const Navbar = () => {
