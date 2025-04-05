@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth/AuthContext';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { AppBar, Button, Box, Typography } from '@mui/material';
 
@@ -38,14 +39,9 @@ export const Navbar = () => {
                 </Box>
 
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography fontWeight='bold'>{user.firstName}</Typography>
+                    <PersonIcon sx={{ cursor: 'pointer' }} onClick={() => navigate('/my-profile')} />
 
-                    <Button
-                        onClick={signOut}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
-                        <LogoutIcon />
-                    </Button>
+                    <LogoutIcon sx={{ marginLeft: '16px', cursor: 'pointer' }} color='white' onClick={signOut} />
                 </Box>
             </Box>
         </AppBar>
