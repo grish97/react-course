@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Typography, Rating } from '@mui/material';
 import { ProductDetails } from "./ProductDetails";
+import { productsActions } from '../../store/slice/productSlice';
 
 export const Products = () => {
-    const [isDetailsOpened, setIsDetailedOpened] = useState(false);
+    const { products } = useSelector((store) => store.products);
+    const dispatch = useDispatch();
 
-    const [products, setProducts] = useState([]);
+    const [isDetailsOpened, setIsDetailedOpened] = useState(false);
 
     const navigate = useNavigate();
     const params = useParams();
+
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
             .then((productsReponse) => {
-                setProducts(productsReponse.products);
+                dispatch(productsActions.addProducts(productsReponse.products));
             });
     }, []);
 
