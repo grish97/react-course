@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-dom";
 import { getImageDetail } from "../data/images";
 
 export const ImageDetail = () => {

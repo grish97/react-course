@@ -1,13 +1,12 @@
-import { Outlet, Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { Outlet, Navigate } from 'react-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth/AuthContext';
 
 
 export const PublicRoutes = () => {
-    const { auth } = useAuth();
+    const { isLoggedIn } = useContext(AuthContext)
 
-    console.log({
-        public: auth.isLoggedIn,
-    });
-
-    return !auth.isLoggedIn && <Outlet />;
+    return !isLoggedIn
+        ? <Outlet />
+        : <Navigate to="/" />
 };

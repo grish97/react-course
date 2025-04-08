@@ -1,9 +1,16 @@
+import { Provider } from 'react-redux';
 import { Routing } from './routing/Routing';
+import { store } from './store';
 import './App.css'
+import { AuthContextProvider } from './context/auth/AuthContextProvider';
 
 function App() {
   return (
-    <Routing />
+    <Provider store={store}>
+      <AuthContextProvider>
+        <Routing />
+      </AuthContextProvider>
+    </Provider>
   )
 }
 

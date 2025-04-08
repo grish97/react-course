@@ -1,26 +1,16 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Container, Box } from '@mui/material';
+import { Navbar } from './Navbar';
 import './MainLayout.css';
 
 export const MainLayout = () => {
     return (
-        <section id="main-layout">
-            <nav>
-                <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/images'>Shorts</Link>
-                    </li>
-                    <li>
-                        <Link to='/subscriptions'>Subscribtions</Link>
-                    </li>
-                </ul>
-            </nav>
+        <Container id="main-layout" disableGutters={true}>
+            <Navbar />
 
-            <div className="content">
+            <Box className="content" sx={{ marginTop: '90px' }}>
                 <Outlet />
-            </div>
-        </section>
+            </Box>
+        </Container>
     );
 };
