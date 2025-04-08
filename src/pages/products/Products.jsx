@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Typography, Rating } from '@mui/material';
 import { ProductDetails } from "./ProductDetails";

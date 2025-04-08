@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth/AuthContext';
 import LogoutIcon from '@mui/icons-material/Logout';
