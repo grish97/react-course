@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-dom';
 
 export const SignIn = () => {
     const navigate = useNavigate();
