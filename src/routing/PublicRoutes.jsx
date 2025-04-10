@@ -3,9 +3,11 @@ import { useAuth } from '../hooks/useAuth';
 
 
 export const PublicRoutes = () => {
-    const { isLoggedIn } = useAuth();
+    const { auth } = useAuth();
 
-    return isLoggedIn
-        ? <Navigate to='/' />
-        : <Outlet />;
+    console.log({
+        public: auth.isLoggedIn,
+    });
+
+    return !auth.isLoggedIn && <Outlet />;
 };
