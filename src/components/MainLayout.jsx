@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-dom";
 import { Container, Box } from '@mui/material';
 import { Navbar } from './Navbar';
 import './MainLayout.css';
