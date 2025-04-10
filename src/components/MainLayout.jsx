@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from "react-dom";
 import './MainLayout.css';
 
 export const MainLayout = () => {
