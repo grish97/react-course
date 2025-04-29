@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-dom';
 
+import { AuthContext } from "../context/auth/AuthContext";
+
 export const SignIn = () => {
+    const authContext = useContext(AuthContext);
+
     const navigate = useNavigate();
 
     const { signIn } = useAuth();
